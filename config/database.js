@@ -10,6 +10,6 @@ console.log(`Database is connected successfully`);
 
 })
 .catch((e)=>{
-console.log(`Error is conneting to database:`,err.message);
+console.log(`Error is conneting to database:`,e.message);
 
 }) 
