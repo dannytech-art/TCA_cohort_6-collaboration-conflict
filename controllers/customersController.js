@@ -66,6 +66,33 @@ exports.getOneCustomer = async (req,res)=>{
         })
       }
     }
+    exports.updateCustomer = async (req,res)=>{
+      try {
+        const {id} = req.params
+        const {customerName,email,phoneNumber}= req.body
+        const updatedcustomer = await customermodel.findById(id)
+        if (!updatedcustomer) {
+          res.status(400).json({
+            message:"updatedcustomer does not exist"
+          })
+        }
+        const data= {
+           customerName,
+           email,
+           phoneNumber
+        }
+        const customerupdated = await customermodel.findByIdAndUpdate(id,data,{new:true});
+
+        res.status(200).json({
+          message:"updatedcustomer successfully",
+          data:customerupdated
+        })
+      } catch (error) {
+        res.status(500).json({
+          message:error.message
+        })
+      }
+    }
 exports.deleteCustomer = async (req, res) => {
     try{
         const {id} = req.params;
