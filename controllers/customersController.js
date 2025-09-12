@@ -33,27 +33,7 @@ exports.createCustomers = async (req,res)=>{
     })
   }
 }
- exports.getOneCustomer = async (req,res)=>{
-
-  try {
-    const {id} = req.params;
-  const customer = await customermodel.findById(id)
-  if (!customer) {
-    res.status(404).json({
-      message:"customer already exist"
-    })
-  }
-  res.status(200).json({
-    message:"one customer successfully",
-    data:customer
-  })
-  } catch (error) {
-    res.status(500).json({
-      message:error.message
-    })
-  }
- }
-  exports.getOneCustomer = async (req,res)=>{
+exports.getOneCustomer = async (req,res)=>{
 
   try {
     const {id} = req.params;
@@ -73,4 +53,14 @@ exports.createCustomers = async (req,res)=>{
     })
   }
  }
- 
+ exports.getAllCustomers = async (req,res)=>{
+       try {
+        const customer = await customermodel.find()
+        res.status(200).json({
+            message: `all customer gotten successfully`,
+            data: customer
+        })
+       } catch (error) {
+        res.status(404).json({
+            message: `err creating car`
+        })
