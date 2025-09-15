@@ -6,7 +6,7 @@ const router = require("express").Router()
 router.post("/customer",createCustomers)
 router.get("/customer/:id",getOneCustomer)
 router.get("/customer",getAllCustomers)
-router.put("/customer/:id",updateCustomer)
+router.patch("/customer/:id",updateCustomer)
 router.delete("/customer/:id",deleteCustomer)
 
 module .exports  =  router
