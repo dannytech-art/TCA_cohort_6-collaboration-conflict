@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const carSchema = new mongoose.Schema({
       carBrand:{
@@ -24,7 +24,8 @@ const carSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'customers'
       },
-},{timestamps: true})
-const carModel = new mongoose.model('cars',carSchema)
+},{timestamps: true});
 
-module.exports = carModel
+const carmodel = mongoose.model( "cars",carSchema );
+
+module.exports = carmodel
